@@ -65,7 +65,7 @@ final class Database {
    */
   private function testIfTableResaExists(): bool
   {
-    $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' like \''.PREFIXE.'Resa\'')->fetch();
+    $existant = $this->DB->query('SHOW TABLES FROM '. DB_NAME.' LIKE \''.PREFIXE.'Resa\'')->fetch();
 
     if ($existant !== false && $existant[0] == PREFIXE."Resa") {
       return true;
