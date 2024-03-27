@@ -28,7 +28,7 @@ class NightRepository
         return $retour;
     }
 
-    public function getNightById(int $id)
+    public function getNightById(int $id): Night
     {
         $sql = "SELECT * FROM " . PREFIXE . "night WHERE id_night = :id;";
         $statement = $this->DB->prepare($sql);

@@ -28,7 +28,7 @@ class PassRepository
         return $retour;
     }
 
-    public function getPassById(int $id)
+    public function getPassById(int $id): Pass
     {
         $sql = "SELECT * FROM " . PREFIXE . "pass WHERE id_pass = :id;";
         $statement = $this->DB->prepare($sql);

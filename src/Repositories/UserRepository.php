@@ -18,17 +18,18 @@ class UserRepository {
     }
 
     public function createUser (User $user) {
+        $password = hash("whirpool", $user->getPasswordUser());
         $sql = "INSERT INTO ".PREFIXE."user VALUES (NULL,?,?,?,?,?,?,?,?);";
         $statement = $this->DB->prepare($sql);
         $retour = $statement->execute([
-            $user->getPasswordUser(),
+            $password,
             $user->getLastNameUser(),
             $user->getFirstNameUser(),
             $user->getTelUser(),
             $user->getAddressUser(),
             $user->getRoleUser(),
             $user->getRgpdUser(),
-            $user->getEmailUser(),
+            $user->getEmailUser()
         ]);
         return $retour;
     }
@@ -42,7 +43,7 @@ class UserRepository {
     }
 
     public function getThisUserById (int $id): User {
-        $sql = "SELECT * FROM ".PREFIXE."user WHERE user_id = :id;";
+        $sql = "SELECT * FROM ".PREFIXE."user WHERE id_user = :id;";
         $statement = $this->DB->prepare($sql);
         $statement->execute([
             ":id" => $id
@@ -52,8 +53,8 @@ class UserRepository {
         return $retour;
     }
 
-    public function getThisUserByMail (int $mail): User {
-        $sql = "SELECT * FROM ".PREFIXE."user WHERE user_mail = :mail;";
+    public function getThisUserByMail (string $mail): User {
+        $sql = "SELECT * FROM ".PREFIXE."user WHERE email_user = :mail;";
         $statement = $this->DB->prepare($sql);
         $statement->execute([
             ":mail" => $mail
@@ -86,6 +87,34 @@ class UserRepository {
             ":email" => $user->getEmailUser()
         ]);
         return $retour;
+    }
+
+    public function login(string $email, string $password) {
+
+        $hash = hash("whirlpool", $password);
+
+        try{
+            $sql = "SELECT * FROM ".PREFIXE."user WHERE email_user = :email AND password_user = :password;";
+            $statement = $this->DB->prepare($sql);
+            $retour = $statement->execute([
+                ":email" => $email,
+                ":password" => $hash
+            ]);
+            return $retour;
+        }catch (PDOException $error){
+            //a changer plus tard
+            var_dump($error);
+        }
+        while ($row = $retour->fetch(\PDO::FETCH_ASSOC)){
+            $user = new User($row);
+        }
+
+        if(isset($user)){
+            $_SESSION["id"] = $user->getIdUser();
+            return "connected";
+        } else {
+            return "not connected";
+        }
     }
 
     // public function deleteUser (int $id) {
