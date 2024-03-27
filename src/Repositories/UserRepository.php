@@ -3,6 +3,7 @@
 namespace src\Repositories;
 
 use PDO;
+use PDOException;
 use src\Models\Database;
 use src\Models\User;
 
@@ -14,6 +15,22 @@ class UserRepository {
         $database = new Database();
         $this->DB = $database->getDB();
         require_once __DIR__.'/../../config.php';
+    }
+
+    public function createUser (User $user) {
+        $sql = "INSERT INTO ".PREFIXE."user VALUES (NULL,?,?,?,?,?,?,?,?);";
+        $statement = $this->DB->prepare($sql);
+        $retour = $statement->execute([
+            $user->getPasswordUser(),
+            $user->getLastNameUser(),
+            $user->getFirstNameUser(),
+            $user->getTelUser(),
+            $user->getAddressUser(),
+            $user->getRoleUser(),
+            $user->getRgpdUser(),
+            $user->getEmailUser(),
+        ]);
+        return $retour;
     }
 
     public function getAllUser (): User {
@@ -46,5 +63,36 @@ class UserRepository {
         return $retour;
     }
 
-    public
+    public function updateUser (User $user) {
+        $sql = "UPDATE ".PREFIXE."user
+                    SET
+                        password_user = :password,
+                        lastName_user = :lastName,
+                        firstName_user = :firstName,
+                        tel_user = :tel,
+                        address_user = :address,
+                        role_user = :role,
+                        rgpd_user = :rgpd,
+                        email_user = :email;";
+        $statement = $this->DB->prepare($sql);
+        $retour = $statement->execute([
+            ":password" => $user->getPasswordUser(),
+            ":lastName" => $user->getLastNameUser(),
+            ":firstName" => $user->getFirstNameUser(),
+            ":tel" => $user->getTelUser(),
+            ":address" => $user->getAddressUser(),
+            ":role" => $user->getRoleUser(),
+            ":rgpd" => $user->getRgpdUser(),
+            ":email" => $user->getEmailUser()
+        ]);
+        return $retour;
+    }
+
+    // public function deleteUser (int $id) {
+    //     try{
+    //         $sql = "";
+    //     }catch (PDOException $error){
+
+    //     }
+    // }
 }
