@@ -39,7 +39,7 @@ if (lastName.length > 3 && lastName.length < 50){
                                 };
                                         
 
-                               fetch("../../register.php", params)
+                               fetch("fetch("/index.php?req=register", params)", params)
                                     .then((res) => res.text())
                                     .then((data) => {
                                         handleFetchResponse(data)
