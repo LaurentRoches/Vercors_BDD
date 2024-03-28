@@ -85,7 +85,7 @@ require_once __DIR__ . '/../src/init.php';
                             <input id="privacyPolicy" name="privacyPolicy" type="checkbox" required class="w-4 h-4 mx-4 privacyPolicy">
                         </div>
                         <div class="flex items-center justify-between">
-                            <label for="privacyPolicy" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold privacyPolicy">I agree to Privacy Policy</label>
+                            <label for="privacyPolicy" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold ">I agree to Privacy Policy</label>
                         </div>
 
                     </div>

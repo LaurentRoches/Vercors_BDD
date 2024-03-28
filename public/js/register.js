@@ -1,4 +1,4 @@
-async function register(){
+function register(){
  
     let lastName = document.querySelector(".lastNameInput").value;
     let firstName = document.querySelector(".firstNameInput").value; 
@@ -7,17 +7,17 @@ async function register(){
     let email = document.querySelector(".creatEmailInput").value;
     let password = document.querySelector(".creatPasswordInput").value;
     let passwordConfirmation = document.querySelector(".creatPasswordConfirmation").value;
-    let rgdp = document.querySelector(".privacyPolicy").value;
+    let rgpd = document.querySelector(".privacyPolicy").checked;
 
-if (lastName.length > 3 && lastName.length < 50){  
-    if (firstName.length > 3 && firstName.length <50){
+ 
+if (lastName.length > 3 && lastName.length < 50){ 
+    if (firstName.length > 2 && firstName.length <50){
           if(address.length > 10 && address.length < 200){
             if(tel.length == 10){
-                if(creatEmail.length > 10 && creatEmail.length < 200){
+                if(email.length > 10 && email.length < 200){
                     if(password.length > 7 && password.length < 50){
                         if(password === passwordConfirmation){
-                            if(rgpd === "on"){
-
+                            if(rgpd){
                                 let creatUser = {
                                     LastNameUser : lastName,
                                     FirstNameUser: firstName,
@@ -25,7 +25,7 @@ if (lastName.length > 3 && lastName.length < 50){
                                     TelUser : tel,
                                     EmailUser: email,
                                     PasswordUser: password, 
-                                    RgdpUser : rgdp, 
+                                    RgpdUser : rgpd, 
                                  };
 
                                 console.log(creatUser)
