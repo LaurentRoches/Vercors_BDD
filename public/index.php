@@ -14,7 +14,7 @@ require_once __DIR__ . '/../src/init.php';
 
 <body class="relative">
     <!-- Creat Account Modal -->
-    <div id="creatAccount" class="modal py-24 top-0 w-screen min-h-screen z-20 bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% ">
+    <div id="creatAccount" class="modal py-24 px-10 top-0 w-screen  min-h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% ">
         <div class="flex flex-col justify-center px-8 max-w-2xl mx-auto bg-white rounded-3xl">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 class="mt-16 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 uppercase text-black text-s font-bold">Creat account</h2>
@@ -110,9 +110,9 @@ require_once __DIR__ . '/../src/init.php';
 
 
     <!-- Login modal -->
-    <div id="modalLogin" class="hidden modal absolute top-0 w-screen h-screen z-10 bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% ">
-        <div class="flex flex-col justify-center px-6 lg:px-8 w-1/2 mx-auto my-28 bg-white rounded-3xl">
-            <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div id="modalLogin" class="modal flex items-center  px-10 top-0 w-screen h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% ">
+        <div class="flex flex-col justify-center px-8 max-w-2xl mx-auto bg-white rounded-3xl">
+            <div class="sm:mx-auto sm:w-full sm:max-w-sm ">
                 <h2 class="mt-16 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 uppercase text-black text-s font-bold">Login</h2>
             </div>
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
