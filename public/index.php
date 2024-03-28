@@ -110,7 +110,7 @@ require_once __DIR__ . '/../src/init.php';
 
 
     <!-- Login modal -->
-    <div id="modalLogin" class="modal flex items-center  px-10 top-0 w-screen h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% ">
+    <div id="loginModal" class="hidden modal flex items-center  px-10 top-0 w-screen h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% ">
         <div class="flex flex-col justify-center px-8 max-w-2xl mx-auto bg-white rounded-3xl">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm ">
                 <h2 class="mt-16 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 uppercase text-black text-s font-bold">Login</h2>
@@ -152,5 +152,7 @@ require_once __DIR__ . '/../src/init.php';
 
 </body>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="./js/register.js"></script>
+<script src="./js/login.js"></script>
 
 </html>
