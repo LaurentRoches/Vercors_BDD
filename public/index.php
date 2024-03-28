@@ -67,7 +67,7 @@ require_once __DIR__ . '/../src/init.php';
                             <label for="creatPassword" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold">Password</label>
                         </div>
                         <div class="mt-2">
-                            <input id="creatPassword" name="creatPassword" type="password" autocomplete="current-password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6 indent-3 creatPasswordInput ">
+                            <input id="creatPassword" name="creatPassword" type="password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6 indent-3 creatPasswordInput ">
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@ require_once __DIR__ . '/../src/init.php';
                             <label for="creatPasswordConfirmation" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold">Password confirmation</label>
                         </div>
                         <div class="mt-2">
-                            <input id="creatPasswordConfirmation" name="creatPasswordConfirmation" type="password" autocomplete="current-password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6 indent-3 creatPasswordConfirmation">
+                            <input id="creatPasswordConfirmation" name="creatPasswordConfirmation" type="password" required class="block w-full bg-orange-50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6 indent-3 creatPasswordConfirmation">
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@ require_once __DIR__ . '/../src/init.php';
                             <input id="privacyPolicy" name="privacyPolicy" type="checkbox" required class="w-4 h-4 mx-4 privacyPolicy">
                         </div>
                         <div class="flex items-center justify-between">
-                            <label for="privacyPolicy" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold">I agree to Privacy Policy</label>
+                            <label for="privacyPolicy" class="block text-sm font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold privacyPolicy">I agree to Privacy Policy</label>
                         </div>
 
                     </div>
