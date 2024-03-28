@@ -2,6 +2,17 @@
 
 require_once __DIR__ . '/../src/init.php';
 
+if(isset($_GET["req"])){
+    switch($_GET["req"]){
+        case "register":
+            require __DIR__."/../src/Traitements/register.php";
+            break;
+        case "login":
+            require __DIR__."/../src/Traitements/login.php";
+            break;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
