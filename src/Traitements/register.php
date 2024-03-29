@@ -10,7 +10,6 @@ $data = file_get_contents("php://input");
 $userTableau = (json_decode($data, true));
 
 if (!empty($userTableau)) {
-    echo "on est dans la condition";
     $userObjet = new User($userTableau);
 
     $lastName = $userObjet->getLastNameUser();
@@ -23,7 +22,7 @@ if (!empty($userTableau)) {
 
 
     if (validateData($lastName, $firstName, $address, $tel, $email, $password, $rgpd)) {
-        echo "on a verifier la secu";
+
         $dbConnexion = new Database();
         $UserRepository = new UserRepository();
 

@@ -30,8 +30,6 @@ if (lastName.length > 3 && lastName.length < 50){
                                     RgpdUser : rgpdDate, 
                                  };
 
-                                console.log(creatUser);
-
                                 let params = {
                                     method: "POST",
                                     headers: {
@@ -43,7 +41,6 @@ if (lastName.length > 3 && lastName.length < 50){
                                fetch("/index.php?req=register", params)
                                     .then((res) => res.text())
                                     .then((data) => {
-                                        console.log(data);
                                         handleFetchResponse(data)
                                     }).catch((e)=>{
                                         console.log(e)
@@ -73,19 +70,15 @@ if (lastName.length > 3 && lastName.length < 50){
     console.log("errorlast")
 };
 
-function handleFetchResponse(data){
-console.log(data)        
+function handleFetchResponse(data){       
         if(data === "Email already taken")
         {
           let toast = document.querySelector(".toast")
           toast.innerText = data
         }
         else if(data==='succes') 
-        {
-          let loginModal = document.getElementById("loginModal")
-          let creatAccount = document.getElementById("creatAccount")
-          creatAccount.classList.add("hidden")
-          loginModal.classList.remove("hidden")
+        {     
+            loginModal();
         }  
         else
         {
