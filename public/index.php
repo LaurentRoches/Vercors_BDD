@@ -15,7 +15,7 @@ if(isset($_GET["req"])){
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">

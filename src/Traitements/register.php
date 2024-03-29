@@ -4,9 +4,6 @@ use src\Models\Database;
 use src\Models\User;
 use src\Repositories\UserRepository;
 
-session_start();
-
-require __DIR__ . "/../../autoload.php";
 
 
 if (isset($_POST)) {
