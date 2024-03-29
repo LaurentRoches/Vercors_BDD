@@ -11,7 +11,12 @@ if(isset($_GET["req"])){
             require __DIR__."/../src/Traitements/login.php";
             break;
     }
-}
+}else{
+
+    if(isset($_SESSION["user"])){
+        $User = unserialize($_SESSION["user"]);
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -168,3 +173,5 @@ if(isset($_GET["req"])){
 <script src="./js/login.js"></script>
 
 </html>
+<?php
+}

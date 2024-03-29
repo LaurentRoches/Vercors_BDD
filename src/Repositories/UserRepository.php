@@ -18,7 +18,7 @@ class UserRepository {
     }
 
     public function createUser (User $user) {
-        $password = hash("whirpool", $user->getPasswordUser());
+        $password = hash("whirlpool", $user->getPasswordUser());
         $sql = "INSERT INTO ".PREFIXE."user VALUES (NULL,?,?,?,?,?,?,?,?);";
         $statement = $this->DB->prepare($sql);
         $retour = $statement->execute([
@@ -53,7 +53,7 @@ class UserRepository {
         return $retour;
     }
 
-    public function getThisUserByMail (string $mail): User {
+    public function getThisUserByMail (string $mail): User|bool {
         $sql = "SELECT * FROM ".PREFIXE."user WHERE email_user = :mail;";
         $statement = $this->DB->prepare($sql);
         $statement->execute([
@@ -108,13 +108,7 @@ class UserRepository {
         while ($row = $retour->fetch(\PDO::FETCH_ASSOC)){
             $user = new User($row);
         }
-
-        if(isset($user)){
-            $_SESSION["id"] = $user->getIdUser();
-            return "connected";
-        } else {
-            return "not connected";
-        }
+        return $user;
     }
 
     // public function deleteUser (int $id) {

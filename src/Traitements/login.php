@@ -4,9 +4,9 @@ use src\Models\User;
 use src\Models\Database;
 use src\Repositories\UserRepository;
 
-if(isset($_POST)) {
-    $data = file_get_contents("php://input");
-    $user = (json_decode($data, true));
+$data = file_get_contents("php://input");
+$user = (json_decode($data, true));
+if(!empty($user)) {
     $obj = new User($user);
     $mail = $obj->getEmailUser();
     $password = $obj->getPasswordUser();

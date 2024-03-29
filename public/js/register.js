@@ -18,6 +18,8 @@ if (lastName.length > 3 && lastName.length < 50){
                     if(password.length > 7 && password.length < 50){
                         if(password === passwordConfirmation){
                             if(rgpd){
+                                let rgpdDate = new Date();
+
                                 let creatUser = {
                                     LastNameUser : lastName,
                                     FirstNameUser: firstName,
@@ -25,10 +27,10 @@ if (lastName.length > 3 && lastName.length < 50){
                                     TelUser : tel,
                                     EmailUser: email,
                                     PasswordUser: password, 
-                                    RgpdUser : rgpd, 
+                                    RgpdUser : rgpdDate, 
                                  };
 
-                                console.log(creatUser)
+                                console.log(creatUser);
 
                                 let params = {
                                     method: "POST",
@@ -37,11 +39,11 @@ if (lastName.length > 3 && lastName.length < 50){
                                     },
                                 body: JSON.stringify(creatUser),
                                 };
-                                        
 
                                fetch("/index.php?req=register", params)
                                     .then((res) => res.text())
                                     .then((data) => {
+                                        console.log(data);
                                         handleFetchResponse(data)
                                     }).catch((e)=>{
                                         console.log(e)
@@ -78,7 +80,7 @@ console.log(data)
           let toast = document.querySelector(".toast")
           toast.innerText = data
         }
-        else if(data==='inserted') 
+        else if(data==='succes') 
         {
           let loginModal = document.getElementById("loginModal")
           let creatAccount = document.getElementById("creatAccount")

@@ -38,7 +38,6 @@ function loginAccount() {
     }
 
     function handleFetchResponse(data){
-        console.log(data)        
                 // if(data === "Email already taken")
                 // {
                 //   let toast = document.querySelector(".toast")

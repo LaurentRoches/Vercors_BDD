@@ -6,10 +6,12 @@ use src\Repositories\UserRepository;
 
 
 
-if (isset($_POST)) {
-    $data = file_get_contents("php://input");
-    $userTableau = (json_decode($data, true));
-    $userObjet = new User();
+$data = file_get_contents("php://input");
+$userTableau = (json_decode($data, true));
+
+if (!empty($userTableau)) {
+    echo "on est dans la condition";
+    $userObjet = new User($userTableau);
 
     $lastName = $userObjet->getLastNameUser();
     $firstName = $userObjet->getFirstNameUser();
@@ -21,16 +23,20 @@ if (isset($_POST)) {
 
 
     if (validateData($lastName, $firstName, $address, $tel, $email, $password, $rgpd)) {
+        echo "on a verifier la secu";
         $dbConnexion = new Database();
-        $userRepository = new UserRepository();
+        $UserRepository = new UserRepository();
 
-        if ($UserRepository->getThisUserByMail($mail)) {
-            echo "email déjà utilisé";
+        if ($UserRepository->getThisUserByMail($email)) {
+            echo "Email already taken";
+            die;
         } else {
-            if ($UserRepository->creatUser($userObjet)) {
+            if ($UserRepository->createUser($userObjet)) {
                 echo "succes";
+                die;
             } else {
                 echo "erreur enregistrement";
+                die;
             }
         }
     }
@@ -59,6 +65,7 @@ function validateData($lastName, $firstName, $address, $tel, $email, $password, 
 
                             if (isset($rgpd) && !empty($rgpd)) {
                                 $rgpd = htmlspecialchars($rgpd);
+                                return true;
                             } else {
                                 echo "erreur rgpd";
                             }
