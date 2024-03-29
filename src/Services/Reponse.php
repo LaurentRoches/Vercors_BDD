@@ -6,7 +6,8 @@ trait Reponse {
 
     public function render(string $view, array $data = [
         'section' => '',
-        'action' => '']) {
+        'action' => ''
+        ]) {
 
             if(!empty($data)) {
                 foreach ($data as $key => $value) {

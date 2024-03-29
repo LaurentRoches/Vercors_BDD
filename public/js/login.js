@@ -23,10 +23,10 @@ function loginAccount() {
                 },
                 body: JSON.stringify(userCredentials),
             };
-            fetch("/index.php?req=login", params)
+            fetch("/login", params)
                 .then((res) => res.text())
                 .then((data)=> {
-                    handleFetchResponse(data);
+                    location.href = data;
                 }).catch((error) => {
                     console.log(error);
                 });

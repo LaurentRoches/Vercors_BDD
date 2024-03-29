@@ -38,7 +38,7 @@ if (lastName.length > 3 && lastName.length < 50){
                                 body: JSON.stringify(creatUser),
                                 };
 
-                               fetch("/index.php?req=register", params)
+                               fetch("/Register", params)
                                     .then((res) => res.text())
                                     .then((data) => {
                                         handleFetchResponse(data)
