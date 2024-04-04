@@ -44,7 +44,7 @@ final class Database {
     }
     // Télécharger le fichier sql d'initialisation dans la BDD
     try {
-      $sql = file_get_contents(__DIR__ . "/../Migrations/Vercors_BDD.sql");
+      $sql = file_get_contents(__DIR__ . "/../Migrations/vercors_bdd.sql");
 
       $this->DB->query($sql);
       // Mettre à jour le fichier config.php
