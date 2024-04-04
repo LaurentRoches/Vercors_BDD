@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 04 avr. 2024 à 11:37
+-- Généré le : jeu. 04 avr. 2024 à 14:46
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `vercors_resa` (
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_resa`),
   KEY `Vercors_Resa_Vercors_User_FK` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -144,7 +144,14 @@ CREATE TABLE IF NOT EXISTS `vercors_user` (
   `email_user` varchar(250) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `Vercors_User_AK` (`email_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `vercors_user`
+--
+
+INSERT INTO `vercors_user` (`id_user`, `password_user`, `lastName_user`, `firstName_user`, `tel_user`, `address_user`, `role_user`, `rgpd_user`, `email_user`) VALUES
+(8, 'cc9f410d0e06619906a5c991daff942ad38c4f40cc12b30808a11e88833c5a6434342a01faae949aa0b02b655d5fc7f3397b96dad59a1744f74d044d93e12f66', 'Admin', 'Admin', '0102030666', 'Admin simplon', 'Admin', '2024-04-04 00:00:00', 'admin@admin.fr');
 
 --
 -- Contraintes pour les tables déchargées
