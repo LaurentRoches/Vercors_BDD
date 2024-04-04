@@ -12,7 +12,7 @@ use src\Repositories\ResaRepository;
 
     foreach($allResas as $resa) { ?>
     <div class="w-80 h-52 bg-white mx-10 my-10 rounded-2xl">
-        <p> Total = <?= $resa->PriceResa() ?></p>
+        <p> Total = <?= $resa->getPriceResa() ?></p>
     </div>
     <?php
     }

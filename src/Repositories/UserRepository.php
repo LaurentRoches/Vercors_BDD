@@ -34,7 +34,7 @@ class UserRepository {
         return $retour;
     }
 
-    public function getAllUser (): User {
+    public function getAllUser (): array {
         $sql = "SELECT * FROM ".PREFIXE."user;";
         $statement = $this->DB->prepare($sql);
         $statement->execute();

@@ -30,11 +30,11 @@
         foreach($allResas as $resa){?>
             <div class="w-5/6 h-48 bg-white drop-shadow-md rounded-2xl my-5 ">
                 <p> Utilisateur n° = <?= $resa->getIdUser() ?></p>
-                <p> Total = <?= $resa->PriceResa() ?></p>
+                <p> Total = <?= $resa->getPriceResa() ?></p>
+            </div>
         <?php
         }
         ?>
-            </div>
 
         </div>
     </div>
