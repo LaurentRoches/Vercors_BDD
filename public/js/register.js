@@ -38,12 +38,12 @@ if (lastName.length > 3 && lastName.length < 50){
                                 body: JSON.stringify(creatUser),
                                 };
 
-                               fetch("/index.php?req=register", params)
+                               fetch("/addUser", params)
                                     .then((res) => res.text())
-                                    .then((data) => {
-                                        handleFetchResponse(data)
-                                    }).catch((e)=>{
-                                        console.log(e)
+                                    .then((data)=> {
+                                        location.href = data;
+                                    }).catch((error) => {
+                                        console.log(error);
                                     });
                             }else{
                                 console.log("error rgpd")

@@ -1,0 +1,8 @@
+</body>
+<script src="https://cdn.tailwindcss.com" defer></script>
+<script src="./js/register.js"></script>
+<script src="./js/login.js"></script>
+<script src="./js/resaFormulaire.js"></script>
+
+
+</html>

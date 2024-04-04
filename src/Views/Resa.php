@@ -1,3 +1,9 @@
+<?php
+
+include __DIR__ . '/Includes/header.php';
+
+?>
+
 <div class="modal py-24 px-10 top-0 w-screen  min-h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% items-center justify-center">
         <fieldset id="reservation" class="flex flex-col justify-center px-8 max-w-2xl mx-auto bg-white rounded-3xl m-2">
             <legend class="mt-16 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900 uppercase text-black font-bold">Réservation</legend>
@@ -165,3 +171,9 @@
       <button class="bouton block w-full select-none rounded-lg bg-gradient-to-tr from-orange-400 to-orange-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-300/20 transition-all hover:shadow-lg hover:shadow-orange-300/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="submit" data-ripple-light="true" onclick="suivant('coordonnees')">Suivant</button>
     </fieldset>
 </div>
+
+<?php
+
+include __DIR__ . '/Includes/footer.php';
+
+?>
