@@ -15,12 +15,12 @@ include __DIR__ . '/Includes/header.php';
             </div>
             <div class="w-full h-10 bg-orange-100 rounded-full mt-6 text-center pt-2 uppercase text-black text-s font-semibold">
                 <?php
-                echo "Lanquette"
+                echo $user->getLastNameUser();
                 ?>
             </div>
         </div>
         <div class="mt-60 h-10 mb-8 w-4/6 bg-red-400 rounded-full hover:bg-red-600">
-            <p class="leading-6 pt-2 text-center uppercase text-white text-xs font-bold" onclick="logout()">Deconnexion</p>
+            <button class="leading-6 pt-2 flex content-center justify-center text-center uppercase text-white text-xs font-bold" onclick="location.href='<?=HOME_URL?>deconnexion'"><span class="text-center uppercase text-white text-xs font-bold content-center justify-center">Deconnexion</span></button>
         </div>
     </div>
 </div>

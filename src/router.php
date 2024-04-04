@@ -27,6 +27,13 @@ switch($route) {
     case HOME_URL . 'register':
         $HomeController->pageRegister();
         break;
+    case HOME_URL . 'addUser':
+        $HomeController->addUser();
+        header("location:".HOME_URL);
+        break;
+    case HOME_URL . 'deconnexion':
+        $HomeController->quit();
+        break;
     case HOME_URL . 'dashboard':
         $HomeController->pageDashboard();
         break;
