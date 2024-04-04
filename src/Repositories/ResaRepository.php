@@ -2,6 +2,7 @@
 
 namespace src\Repositories;
 
+use DateTime;
 use PDO;
 use PDOException;
 use src\Models\Database;
@@ -17,16 +18,21 @@ class ResaRepository {
         require_once __DIR__.'/../../config.php';
     }
 
-    public function createResa (Resa $resa) {
-        $sql = "INSERT INTO ".PREFIXE."resa VALUES (NULL, ?, ?, ?, ?, ?, ?);";
+    public function createResa (Resa $resa, int $idPass, int $idNight, $date) {
+        $sql = "INSERT INTO ".PREFIXE."resa VALUES (NULL, :ReducResa, :KidsResa, :HeadsetResa, :SledResa, :PriceResa, :IdUser);
+                INSERT INTO come VALUES (:idPass , LAST_INSERT_ID());
+                INSERT INTO choice VALUES (:idNight, LAST_INSERT_ID(), :date);";
         $statement = $this->DB->prepare($sql);
         $retour = $statement->execute([
-            $resa->isReducResa(),
-            $resa->isKidsResa(),
-            $resa->getHeadsetResa(),
-            $resa->getSledResa(),
-            $resa->getPriceResa(),
-            $resa->getIdUser()
+            ":ReducResa" => $resa->isReducResa(),
+            ":KidsResa" => $resa->isKidsResa(),
+            ":HeadsetResa" => $resa->getHeadsetResa(),
+            ":SledResa" => $resa->getSledResa(),
+            ":PriceResa" => $resa->getPriceResa(),
+            ":IdUser" => $resa->getIdUser(),
+            ":idPass" => $idPass,
+            ":idNight" => $idNight,
+            ":date" => $date
         ]);
         return $retour;
     }
