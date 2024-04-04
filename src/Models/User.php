@@ -13,7 +13,7 @@ class User {
     private string $FirstNameUser;
     private string $TelUser;
     private string $AddressUser;
-    private string $RoleUser;
+    private string $RoleUser = "User";
     private DateTime $RgpdUser;
     private string $EmailUser;
 
@@ -150,19 +150,21 @@ class User {
     /**
      * Get the value of RgpdUser
      */
-    public function getRgpdUser(): DateTime
+    public function getRgpdUser(): string
     {
-        return $this->RgpdUser;
+        return $this->RgpdUser->format('Y-m-d');
     }
 
     /**
      * Set the value of RgpdUser
      */
-    public function setRgpdUser(DateTime $RgpdUser): self
+    public function setRgpdUser(string|DateTime $RgpdUser): void
     {
-        $this->RgpdUser = $RgpdUser;
-
-        return $this;
+        if($RgpdUser instanceof DateTime) {
+            $this->RgpdUser = $RgpdUser;
+        } else {
+            $this->RgpdUser = new DateTime($RgpdUser);
+        }
     }
 
     /**
