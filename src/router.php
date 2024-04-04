@@ -1,12 +1,14 @@
 <?php
 
 use src\Controllers\HomeController;
+use src\Controllers\ResaController;
 use src\Services\Routing;
 
 $route = $_SERVER['REDIRECT_URL'];
 $methode = $_SERVER['REQUEST_METHOD'];
 
 $HomeController = new HomeController;
+$ResaController= new ResaController;
 
 // ici le :: permet d'appeler la fonction static de la class Routing
 $routeComposee = Routing::routeComposee($route);
@@ -31,10 +33,17 @@ switch($route) {
         $HomeController->addUser();
         header("location:".HOME_URL);
         break;
+    case HOME_URL . 'pageResa':
+        $HomeController->pageResaFormulaire();
+        break;
     case HOME_URL . 'deconnexion':
         $HomeController->quit();
         break;
     case HOME_URL . 'dashboard':
         $HomeController->pageDashboard();
+        break;
+    case HOME_URL . 'addResa':
+        $ResaController->addResa();
+        header("location:" . HOME_URL."dashboard");
         break;
 }

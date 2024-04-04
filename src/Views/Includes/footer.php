@@ -3,6 +3,6 @@
 <script src="./js/register.js"></script>
 <script src="./js/login.js"></script>
 <script src="./js/resaFormulaire.js"></script>
-
+<!-- <script src="./js/resa.js"></script> -->
 
 </html>

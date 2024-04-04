@@ -4,7 +4,7 @@ include __DIR__ . '/Includes/header.php';
 
 ?>
 
-<div class="modal py-24 px-10 top-0 w-screen  min-h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% items-center justify-center">
+<form action="/addResa" method="POST" class="modal py-24 px-10 top-0 w-screen  min-h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% items-center justify-center">
         <fieldset id="reservation" class="flex flex-col justify-center px-8 max-w-2xl mx-auto bg-white rounded-3xl m-2">
             <legend class="mt-16 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900 uppercase text-black font-bold">Réservation</legend>
       <?php 
@@ -83,12 +83,6 @@ include __DIR__ . '/Includes/header.php';
             <input type="checkbox" name="pass3joursReduit" id="pass3joursReduit" style="display:none;" class="block text-lg font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold">
         </div>
 
-      <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
-
-      <button class="bouton block w-full select-none rounded-lg bg-gradient-to-tr from-orange-400 to-orange-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-300/20 transition-all hover:shadow-lg hover:shadow-orange-300/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="submit" data-ripple-light="true" onclick="suivant('options')"><span class="text-lg">Suivant</span></button>
-  </fieldset>
-
-  <fieldset id="options" style="display:none;" class="flex flex-col justify-center px-8 max-w-2xl mx-auto bg-white rounded-3xl m-2">
         <legend class="mt-16 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900 uppercase text-black font-bold">Options</legend>
         <h3 class="block font-medium leading-6 text-gray-900 uppercase text-black text-s font-semibold text-center text-2xl m-2 my-4">Réserver un emplacement de tente : </h3>
         <div class="flex">
@@ -168,9 +162,9 @@ include __DIR__ . '/Includes/header.php';
       <?php
       // }
       ?>
-      <button class="bouton block w-full select-none rounded-lg bg-gradient-to-tr from-orange-400 to-orange-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-300/20 transition-all hover:shadow-lg hover:shadow-orange-300/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="submit" data-ripple-light="true" onclick="suivant('coordonnees')">Suivant</button>
+      <button class="bouton block w-full select-none rounded-lg bg-gradient-to-tr from-orange-400 to-orange-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-300/20 transition-all hover:shadow-lg hover:shadow-orange-300/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="submit" data-ripple-light="true">reserver</button>
     </fieldset>
-</div>
+</form>
 
 <?php
 

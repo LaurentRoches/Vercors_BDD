@@ -108,6 +108,11 @@ class HomeController {
             $this->render("register", ["erreur" => $erreur]);
       }
 
+      public function pageResaFormulaire() :void {
+            $erreur = isset($_GET["erreur"]) ? $_GET["erreur"] : '';
+            $this->render("ResaFormulaire", ["erreur" => $erreur]);
+      }
+
       public function pageDashboard() :void {
             // On définit la variable erreur, soit avec le message en GET, soit vide
             $erreur = isset($_GET["erreur"]) ? $_GET["erreur"] : '';
