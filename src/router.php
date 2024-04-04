@@ -31,6 +31,9 @@ switch($route) {
         $HomeController->addUser();
         header("location:".HOME_URL);
         break;
+    case HOME_URL . 'pageResa':
+        $HomeController->pageResaFormulaire();
+        break;
     case HOME_URL . 'deconnexion':
         $HomeController->quit();
         break;

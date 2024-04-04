@@ -168,7 +168,7 @@ include __DIR__ . '/Includes/header.php';
       <?php
       // }
       ?>
-      <button class="bouton block w-full select-none rounded-lg bg-gradient-to-tr from-orange-400 to-orange-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-300/20 transition-all hover:shadow-lg hover:shadow-orange-300/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="submit" data-ripple-light="true" onclick="suivant('coordonnees')">Suivant</button>
+      <button class="bouton block w-full select-none rounded-lg bg-gradient-to-tr from-orange-400 to-orange-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-orange-300/20 transition-all hover:shadow-lg hover:shadow-orange-300/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="submit" data-ripple-light="true" onclick="reserver(<?= $user->getIdUser() ?>)">reserver</button>
     </fieldset>
 </div>
 
