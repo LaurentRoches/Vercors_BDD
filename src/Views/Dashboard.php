@@ -5,6 +5,7 @@ include __DIR__ . '/Includes/header.php';
 ?>
 
 <div id="dashboard" class="modal top-0 w-screen  min-h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% ">
+    <!-- La colonne -->
     <div class=" h-dvh w-1/5 flex-col flex items-center bg-white justify-between fixed ">
         <div class="w-4/6 flex flex-col items-center">
             <div class=" xl:h-44 lg:h-36 md:h-32 sm:h-24 xl:w-44 lg:w-36 md:w-32 sm:w-24 bg-orange-100 my-8 rounded-full"></div>
@@ -22,6 +23,9 @@ include __DIR__ . '/Includes/header.php';
         <div class="mt-60 h-10 mb-8 w-4/6 bg-red-400 rounded-full hover:bg-red-600">
             <button class="leading-6 pt-2 flex content-center justify-center text-center uppercase text-white text-xs font-bold" onclick="location.href='<?=HOME_URL?>deconnexion'"><span class="text-center uppercase text-white text-xs font-bold content-center justify-center">Deconnexion</span></button>
         </div>
+    </div>
+    <!-- Zone include views -->
+    <div class=" h-dvh w-1/5 flex-col flex items-center bg-white justify-between fixed ">
     </div>
 </div>
 
