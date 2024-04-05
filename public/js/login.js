@@ -23,7 +23,7 @@ function loginAccount() {
                 },
                 body: JSON.stringify(userCredentials),
             };
-            fetch("/login", params)
+            fetch("/laurent/vercorsbdd/public/login", params)
                 .then((res) => res.text())
                 .then((data)=> {
                     location.href = data;

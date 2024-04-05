@@ -192,7 +192,7 @@ class ResaController
 
             if ($test) {
                 echo "le mail a bien été envoyé.";
-                header('location: ' . HOME_URL . 'dashboard');
+                header('location: '.HOME_URL.'dashboard');
                 die();
             } else {
                 echo "le mail n'a pas bien été envoyé.";
@@ -200,7 +200,7 @@ class ResaController
                 die();
             }
         } else {
-            header('location: ' . HOME_URL . 'dashboard?erreur=reservation');
+            header('location: '.HOME_URL.'dashboard?erreur=reservation');
             die();
         }
     }
