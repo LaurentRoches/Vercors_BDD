@@ -5,7 +5,8 @@ namespace src\Models;
 use DateTime;
 use src\Services\Hydratation;
 
-class Pass{
+class Pass
+{
 
     private int $IdPass;
     private string $NamePass;
@@ -15,7 +16,7 @@ class Pass{
 
     use Hydratation;
 
-    
+
 
     /**
      * Get the value of IdPass
@@ -92,18 +93,20 @@ class Pass{
     /**
      * Get the value of DatePass
      */
-    public function getDatePass(): DateTime
+    public function getDatePass(): string
     {
-        return $this->DatePass;
+        return $this->DatePass->format('Y-m-d');
     }
 
     /**
      * Set the value of DatePass
      */
-    public function setDatePass(DateTime $DatePass): self
+    public function setDatePass(string | DateTime $DatePass): void
     {
-        $this->DatePass = $DatePass;
-
-        return $this;
+        if ($DatePass instanceof DateTime) {
+            $this->DatePass = $DatePass;
+        } else {
+            $this->DatePass = new DateTime($DatePass);
+        }
     }
 }
