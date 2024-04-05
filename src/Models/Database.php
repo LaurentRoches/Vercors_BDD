@@ -5,27 +5,30 @@ namespace src\Models;
 use PDO;
 use PDOException;
 
-final class Database {
+final class Database
+{
 
-    private $DB;
-    private $Config;
+  private $DB;
+  private $Config;
 
-    public function __construct() {
-        $this->Config = __DIR__ .'/../../config.php';
-        require_once $this->Config;
-        $this->ConnexionDB();
+  public function __construct()
+  {
+    $this->Config = __DIR__ . '/../../config.php';
+    require_once $this->Config;
+    $this->ConnexionDB();
+  }
+
+  private function ConnexionDB()
+  {
+    try {
+      $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME;
+      $this->DB = new PDO($dsn, DB_USER, DB_PWD);
+    } catch (PDOException $error) {
+      echo "Quelque chose s'est mal passé : " . $error->getMessage();
     }
+  }
 
-    private function ConnexionDB() {
-        try {
-            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME;
-            $this->DB = new PDO($dsn, DB_USER, DB_PWD);
-          } catch (PDOException $error) {
-            echo "Quelque chose s'est mal passé : " . $error->getMessage();
-          }
-    }
-
-    public function getDB()
+  public function getDB()
   {
     return $this->DB;
   }
@@ -65,9 +68,9 @@ final class Database {
    */
   private function testIfTableResaExists(): bool
   {
-    $existant = $this->DB->query('SHOW TABLES FROM '. DB_NAME.' LIKE \''.PREFIXE.'Resa\'')->fetch();
+    $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' LIKE \'' . PREFIXE . 'Resa\'')->fetch();
 
-    if ($existant !== false && $existant[0] == PREFIXE."Resa") {
+    if ($existant !== false && $existant[0] == PREFIXE . "Resa") {
       return true;
     } else {
       return false;
@@ -82,11 +85,12 @@ final class Database {
     $contenu = "<?php
     // lors de la mise en open source, remplacer les infos concernant la base de données.
     
-    define('DB_HOST', '" . DB_HOST . "');
-    define('DB_NAME', '" . DB_NAME . "');
-    define('DB_USER', '" . DB_USER . "');
-    define('DB_PWD', '" . DB_PWD . "');
-    define('PREFIXE', '" . PREFIXE . "');
+  define('DB_HOST', 'localhost');
+  define('DB_NAME', 'Vercors_bdd');
+  define('DB_USER', 'Vercors_bdd');
+  define('DB_PWD', 'Vercorsbdd');
+  define('PREFIXE', 'Vercors_');
+  define('HOME_URL', '/');
     
     // Ne pas toucher :
     

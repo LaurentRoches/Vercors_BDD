@@ -147,7 +147,7 @@ class ResaController
             $enfantsOui = htmlspecialchars($_POST['enfantsOui']);
             $kidResa = TRUE;
         }
-        
+
         if (isset($_POST['enfantsNon'])) {
             $enfantsNon = htmlspecialchars($_POST['enfantsNon']);
             $kidResa = FALSE;
@@ -181,11 +181,27 @@ class ResaController
         $newResa = new Resa($tableauResa);
         $resaRepository = new ResaRepository($database);
         if ($resaRepository->createResa($newResa, $idPass, $idNight, $dateString)) {
-            header('location: '.HOME_URL.'dashboard');
-            die();
+            $to      = 'tonie.lanquette1@gmail.com';
+            $subject = 'Réservation Festival du Vercors';
+            $message = 'Bonjour ! Votre réservation à bien été prise en compté à très bientôt au festival !';
+            $headers = 'From: email@envoi.fr' . "\r\n" .
+                'Reply-To: email@envoi.fr' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+            $test = mail($to, $subject, $message, $headers);
+
+            if ($test) {
+                echo "le mail a bien été envoyé.";
+                header('location: ' . HOME_URL . 'dashboard');
+                die();
+            } else {
+                echo "le mail n'a pas bien été envoyé.";
+                var_dump($test);
+                die();
+            }
         } else {
-            header('location: '.HOME_URL.'dashboard?erreur=reservation');
+            header('location: ' . HOME_URL . 'dashboard?erreur=reservation');
             die();
-      }
+        }
     }
 }
