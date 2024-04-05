@@ -7,10 +7,20 @@ use PDOException;
 
 final class Database
 {
+final class Database
+{
 
   private $DB;
   private $Config;
+  private $DB;
+  private $Config;
 
+  public function __construct()
+  {
+    $this->Config = __DIR__ . '/../../config.php';
+    require_once $this->Config;
+    $this->ConnexionDB();
+  }
   public function __construct()
   {
     $this->Config = __DIR__ . '/../../config.php';
@@ -27,7 +37,17 @@ final class Database
       echo "Quelque chose s'est mal passé : " . $error->getMessage();
     }
   }
+  private function ConnexionDB()
+  {
+    try {
+      $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME;
+      $this->DB = new PDO($dsn, DB_USER, DB_PWD);
+    } catch (PDOException $error) {
+      echo "Quelque chose s'est mal passé : " . $error->getMessage();
+    }
+  }
 
+  public function getDB()
   public function getDB()
   {
     return $this->DB;
@@ -69,7 +89,9 @@ final class Database
   private function testIfTableResaExists(): bool
   {
     $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' LIKE \'' . PREFIXE . 'Resa\'')->fetch();
+    $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' LIKE \'' . PREFIXE . 'Resa\'')->fetch();
 
+    if ($existant !== false && $existant[0] == PREFIXE . "Resa") {
     if ($existant !== false && $existant[0] == PREFIXE . "Resa") {
       return true;
     } else {
@@ -106,3 +128,4 @@ final class Database
     }
   }
 }
+
