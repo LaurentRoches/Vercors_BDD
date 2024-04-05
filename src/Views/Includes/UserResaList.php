@@ -3,16 +3,43 @@
 
     <?php
 
-use src\Models\Database;
-use src\Repositories\ResaRepository;
+    use src\Models\Database;
+    use src\Repositories\NightRepository;
+    use src\Repositories\PassRepository;
+    use src\Repositories\ResaRepository;
 
     $database = new Database;
     $resaRepository = new ResaRepository($database);
     $allResas = $resaRepository->getAllResaByUserId($user->getIdUser());
+    $PassRepository = new PassRepository($database);
+    $pass = $PassRepository->getPassByIdTache($resa->getIdResa());
+    $NightRepository = new NightRepository($database);
+    $nights =$NightRepository->getNightByIdResa($resa->getIdResa());
 
     foreach($allResas as $resa) { ?>
     <div class="w-80 h-52 bg-white mx-10 my-10 rounded-2xl">
-        <p> Total = <?= $resa->getPriceResa() ?></p>
+        <?php
+        if ($resa->isReducResa()){ ?>
+        <p> Vous avez choisi le tarif réduit </p>
+        <?php
+        }
+        foreach($pass as $journee) {?>
+        <p> Vous avez reservé un <?= $journee->getNamePass() ?></p>
+        <p> pour la journée du <?= $journee->getDatePass() ?></p>
+        <?php
+        };
+        foreach($nights as $night) { ?>
+        <p> Vous avez choisi <?= $night->getNameNight() ?> </p> 
+        <?php
+        }
+        if ($resa->isKidsResa()){ ?>
+            <p> Vous avez choisi de venir avec des enfants </p>
+            <p> Vous avez pris <?= $resa->getHeadsetResa() ?> casques anti-bruit</p>
+            <?php
+        }
+        ?>
+        <p> Vous avez réserver <?= $resa->getSledResa() ?> descente de luge </p>
+        <p> Pour un total = <?= $resa->getPriceResa() ?></p>
     </div>
     <?php
     }

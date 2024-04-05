@@ -38,6 +38,16 @@ class NightRepository
         return $retour;
     }
 
+    public function getNightByIdResa(int $id): array
+    {
+        $sql = "SELECT * FROM ".PREFIXE."night WHERE id_night IN(
+                SELECT id_night FROM choice WHERE id_resa = :id);";
+        $statement = $this->DB->prepare($sql);
+        $statement->execute([":id => $id"]);
+        $retour = $statement->fetchAll(PDO::FETCH_CLASS, Night::class);
+        return $retour;
+    }
+
     public function creatNight(Night $night)
     {
 

@@ -87,6 +87,7 @@ final class Database {
     define('DB_USER', '" . DB_USER . "');
     define('DB_PWD', '" . DB_PWD . "');
     define('PREFIXE', '" . PREFIXE . "');
+    define('HOME_URL', '". HOME_URL ."');
     
     // Ne pas toucher :
     
