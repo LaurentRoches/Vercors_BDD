@@ -32,7 +32,7 @@ class NightRepository
     {
         $sql = "SELECT * FROM " . PREFIXE . "night WHERE id_night = :id;";
         $statement = $this->DB->prepare($sql);
-        $statement->execute([":id => $id"]);
+        $statement->execute([":id" => $id]);
         $statement->setFetchMode(PDO::FETCH_CLASS, Night::class);
         $retour = $statement->fetch();
         return $retour;
@@ -40,10 +40,10 @@ class NightRepository
 
     public function getNightByIdResa(int $id): array
     {
-        $sql = "SELECT * FROM ".PREFIXE."night WHERE id_night IN(
+        $sql = "SELECT * FROM " . PREFIXE . "night WHERE id_night IN(
                 SELECT id_night FROM choice WHERE id_resa = :id);";
         $statement = $this->DB->prepare($sql);
-        $statement->execute([":id => $id"]);
+        $statement->execute([":id" => $id]);
         $retour = $statement->fetchAll(PDO::FETCH_CLASS, Night::class);
         return $retour;
     }

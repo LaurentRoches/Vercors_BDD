@@ -33,17 +33,17 @@ include __DIR__ . '/Includes/header.php';
                     <p id="loginToastText" class=" toast flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white uppercase text-s font-semibold opacity-80 ">
                     </p>
                 </div>
-                <?php if ($erreur == "connexion"){ ?>
-                <div class="error">
-                    Erreur de connexion.
-                </div>
+                <?php if ($erreur == "connexion") { ?>
+                    <div class="error">
+                        Erreur de connexion.
+                    </div>
                 <?php } ?>
 
-                <div>
-                    <button onclick="loginAccount()" class=" my-10 flex w-ful justify-center rounded-md bg-orange-300 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 uppercase text-white text-s font-semibold">Login</button>
+                <div class="flex justify-center">
+                    <button onclick="loginAccount()" class="flex w-ful justify-center rounded-md bg-orange-300 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 uppercase text-white text-s font-semibold">Login</button>
                 </div>
                 <div>
-                    <button onclick="location.href='<?=HOME_URL?>register'" class=" mb-16 flex w-full justify-center rounded-md bg-orange-300 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 uppercase text-white text-s font-semibold">Pour créer un compte</button>
+                    <button onclick="location.href='<?= HOME_URL ?>register'" class=" mb-16 flex w-full justify-center rounded-md bg-orange-300 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 uppercase text-white text-s font-semibold">Pour créer un compte</button>
                 </div>
             </div>
         </div>
