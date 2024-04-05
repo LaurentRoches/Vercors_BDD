@@ -182,8 +182,8 @@ class ResaController
         $resaRepository = new ResaRepository($database);
         if ($resaRepository->createResa($newResa, $idPass, $idNight, $dateString)) {
             $to      = 'tonie.lanquette1@gmail.com';
-            $subject = 'le sujet';
-            $message = 'Bonjour ! ça fonctionne !';
+            $subject = 'Réservation Festival du Vercors';
+            $message = 'Bonjour ! Votre réservation à bien été prise en compté à très bientôt au festival !';
             $headers = 'From: email@envoi.fr' . "\r\n" .
                 'Reply-To: email@envoi.fr' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();

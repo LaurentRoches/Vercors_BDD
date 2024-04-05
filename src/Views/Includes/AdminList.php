@@ -1,7 +1,7 @@
 <div id="dashboard" class="flex modal top-0 w-screen min-h-screen bg-gradient-to-b from-teal-400 from-5% via-red-400 via-35%  to-yellow-200 to-95% justify-end ">
     <div class="w-8/12 justify-around flex mr-10">
-        <div class="w-2/5 h-5/6 bg-white my-20 rounded-2xl flex flex-col items-center py-10">
-
+        <div class="w-2/5 h-min bg-white my-20 rounded-2xl flex flex-col items-center py-10">
+            <p class="font-bold pb-5">Tous les utilisateurs :</p>
             <?php
 
             use src\Models\Database;
@@ -18,7 +18,8 @@
             $PassRepository = new PassRepository($database);
 
             foreach ($allUsers as $userAdmin) { ?>
-                <div class="w-5/6 min-h-48 bg-white drop-shadow-md rounded-2xl my-5 p-5">
+                <div class="w-5/6 h-min bg-white drop-shadow-md rounded-2xl my-5 p-5">
+
                     <p>ID : <?= $userAdmin->getIdUser() ?></p>
                     <p>Nom : <?= $userAdmin->getLastNameUser() ?></p>
                     <p>Prenom : <?= $userAdmin->getFirstNameUser() ?></p>
@@ -30,13 +31,14 @@
             }
             ?>
         </div>
-        <div class="w-2/5 h-5/6 bg-white my-20 rounded-2xl flex flex-col items-center py-10">
+        <div class="w-2/5 h-min bg-white my-20 rounded-2xl flex flex-col items-center py-10">
+            <p class="font-bold pb-5">Toutes les réservations :</p>
             <?php
             foreach ($allResas as $resa) {
                 $pass = $PassRepository->getPassByIdTache($resa->getIdResa());
                 $NightRepository = new NightRepository($database);
                 $nights = $NightRepository->getNightByIdResa($resa->getIdResa()); ?>
-                <div class="w-5/6 min-h-48 bg-white drop-shadow-md rounded-2xl my-5 p-5">
+                <div class="w-5/6 h-min bg-white drop-shadow-md rounded-2xl my-5 p-5">
                     <p> Utilisateur n° : <?= $resa->getIdUser() ?></p>
                     <?php
                     if ($resa->isReducResa()) { ?>
