@@ -63,7 +63,7 @@ class HomeController {
                         die();
                   } else {
                         if ($UserRepository->createUser($userObjet)) {
-                              echo HOME_URL;
+                              header('location: '.HOME_URL) ;
                               die();
                         } else {
                               header('location: '.HOME_URL.'?erreur=enregistrement');
@@ -91,7 +91,7 @@ class HomeController {
                   if($UserRepository->login($mail, $password)){
                         $_SESSION["connected"] = TRUE;
                         $_SESSION["user"] = serialize($UserRepository->getThisUserByMail($mail));
-                        echo HOME_URL . 'dashboard';
+                        header('location: '.HOME_URL . 'dashboard') ;
                         die();
                   } else{
                         header('location: '.HOME_URL.'?erreur=connexion');
@@ -110,7 +110,7 @@ class HomeController {
 
       public function pageResaFormulaire() :void {
             $erreur = isset($_GET["erreur"]) ? $_GET["erreur"] : '';
-            $this->render("ResaFormulaire", ["erreur" => $erreur]);
+            $this->render("resaFormulaire", ["erreur" => $erreur]);
       }
 
       public function pageDashboard() :void {

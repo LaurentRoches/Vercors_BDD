@@ -5,9 +5,9 @@ namespace src\Models;
 use PDO;
 use PDOException;
 
+
 final class Database
 {
-
   private $DB;
   private $Config;
 
@@ -69,7 +69,7 @@ final class Database
   private function testIfTableResaExists(): bool
   {
     $existant = $this->DB->query('SHOW TABLES FROM ' . DB_NAME . ' LIKE \'' . PREFIXE . 'Resa\'')->fetch();
-
+  
     if ($existant !== false && $existant[0] == PREFIXE . "Resa") {
       return true;
     } else {
@@ -85,15 +85,13 @@ final class Database
     $contenu = "<?php
     // lors de la mise en open source, remplacer les infos concernant la base de données.
     
-  define('DB_HOST', 'localhost');
-  define('DB_NAME', 'Vercors_bdd');
-  define('DB_USER', 'Vercors_bdd');
-  define('DB_PWD', 'Vercorsbdd');
-  define('PREFIXE', 'Vercors_');
-  define('HOME_URL', '/');
-    
-    // Ne pas toucher :
-    
+    define('DB_HOST', '" . DB_HOST . "');
+    define('DB_NAME', '" . DB_NAME . "');
+    define('DB_USER', '" . DB_USER . "');
+    define('DB_PWD', '" . DB_PWD . "');
+    define('PREFIXE', '" . PREFIXE . "');
+    define('HOME_URL', '". HOME_URL ."');
+
     define('DB_INITIALIZED', TRUE);";
 
 
@@ -106,3 +104,4 @@ final class Database
     }
   }
 }
+

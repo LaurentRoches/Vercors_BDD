@@ -38,7 +38,7 @@ if (lastName.length > 3 && lastName.length < 50){
                                 body: JSON.stringify(creatUser),
                                 };
 
-                               fetch("/addUser", params)
+                               fetch("/laurent/vercorsbdd/public/addUser", params)
                                     .then((res) => res.text())
                                     .then((data)=> {
                                         location.href = data;

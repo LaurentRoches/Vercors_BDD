@@ -1,13 +1,11 @@
 <?php
-// lors de la mise en open source, remplacer les infos concernant la base de données.
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'Vercors_bdd');
-define('DB_USER', 'Vercors_bdd');
-define('DB_PWD', 'Vercorsbdd');
-define('PREFIXE', 'Vercors_');
-define('HOME_URL', '/');
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', '______');
+    define('DB_USER', '________');
+    define('DB_PWD', '______________________');
+    define('PREFIXE', 'vercors_');
+    define('HOME_URL', '/laurent/vercorsbdd/public/');
+    define('DB_INITIALIZED', FALSE);
 
-// // Ne pas toucher :
 
-define('DB_INITIALIZED', TRUE);
