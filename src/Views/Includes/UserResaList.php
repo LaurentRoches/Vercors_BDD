@@ -18,7 +18,9 @@
             $pass = $PassRepository->getPassByIdTache($resa->getIdResa());
             $NightRepository = new NightRepository($database);
             $nights = $NightRepository->getNightByIdResa($resa->getIdResa()); ?>
-            <div class="w-80 h-52 bg-white mx-10 my-10 rounded-2xl p-5">
+            <div class="w-80 h-min bg-white mx-10 mt-10 rounded-2xl p-5">
+                <p class="font-bold pb-5">Votre réservation :</p>
+
                 <?php
                 if ($resa->isReducResa()) { ?>
                     <p> Vous avez choisi le tarif réduit </p>
@@ -40,7 +42,7 @@
                 }
                 ?>
                 <p> Vous avez réserver <?= $resa->getSledResa() ?> descente de luge </p>
-                <p> Pour un total de <?= $resa->getPriceResa() ?></p>
+                <p> Pour un total de <?= $resa->getPriceResa() ?> euros</p>
             </div>
         <?php
         }

@@ -92,8 +92,6 @@ final class Database
     define('PREFIXE', '" . PREFIXE . "');
     define('HOME_URL', '". HOME_URL ."');
 
-    // Ne pas toucher :
-    
     define('DB_INITIALIZED', TRUE);";
 
 
